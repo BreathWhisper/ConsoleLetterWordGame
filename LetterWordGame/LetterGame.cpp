@@ -48,6 +48,16 @@ int LetterGame::getAttemptCount() const
     return attemptCount;
 }
 
+bool LetterGame::isLowerCase(std::string& userWord) const
+{
+    for (char ch : userWord) {
+        if (!islower(ch)) {
+            return false;
+        }
+    }
+    return true;
+}
+
 std::string LetterGame::generateSecretWord() {
     std::random_device rd;
     std::mt19937 rng(rd());

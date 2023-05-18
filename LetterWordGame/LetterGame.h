@@ -18,6 +18,7 @@ public:
     bool isGameOver() const;
     std::string getSecretWord() const;
     int getAttemptCount() const;
+    bool isLowerCase(std::string& userWord) const;
 
 private:
     std::string generateSecretWord();
