@@ -33,22 +33,22 @@ int main() {
         // Игровой цикл
         while (!game.isGameOver()) {
             std::cout << "Попытка " << game.getAttemptCount() << ": ";
-            std::string guess;
-            std::cin >> guess;
+            std::string userWord;
+            std::cin >> userWord;
 
-            if (guess.length() != 6) {
+            if (userWord.length() != 6) {
                 std::cout << "Некорректное слово. Введите слово из 6 букв." << std::endl;
                 continue;
             }
 
-            bool result = game.checkGuess(guess);
+            bool result = game.checkGuess(userWord);
             if (result) {
                 std::cout << "Вы угадали слово! Поздравляем!" << std::endl;
                 break;
             }
             else {
                 std::cout << "Неверное слово. ";
-                game.printHint(guess);
+                game.printHint(userWord);
             }
 
             if (game.isGameOver()) {

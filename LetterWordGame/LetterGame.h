@@ -4,6 +4,7 @@
 
 #include <string>
 #include <array>
+#include <random>
 #include <iostream>
 
 const int MAX_WORDS = 100; // максимальное количество слов в файле
@@ -12,8 +13,8 @@ class LetterGame {
 public:
     LetterGame(const std::array<std::string, MAX_WORDS>& wordList, int wordCount);
     void startNewGame();
-    bool checkGuess(const std::string& guess);
-    void printHint(std::string userWord) const;
+    bool checkGuess(const std::string& userWord);
+    void printHint(std::string& userWord) const;
     bool isGameOver() const;
     std::string getSecretWord() const;
     int getAttemptCount() const;

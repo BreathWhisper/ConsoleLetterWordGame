@@ -1,5 +1,4 @@
 #include "LetterGame.h"
-#include <random>
 
 LetterGame::LetterGame(const std::array<std::string, MAX_WORDS>& wordList, int wordCount)
     : wordList(wordList), wordCount(wordCount), attemptCount(0), gameOver(false) {}
@@ -10,10 +9,10 @@ void LetterGame::startNewGame() {
     secretWord = generateSecretWord();
 }
 
-bool LetterGame::checkGuess(const std::string& guess) {
+bool LetterGame::checkGuess(const std::string& userWord) {
     ++attemptCount;
 
-    if (guess == secretWord) {
+    if (userWord == secretWord) {
         gameOver = true;
         return true;
     }
@@ -21,7 +20,7 @@ bool LetterGame::checkGuess(const std::string& guess) {
     return false;
 }
 
-void LetterGame::printHint(std::string userWord) const {
+void LetterGame::printHint(std::string& userWord) const {
     for (int i = 0; i < secretWord.length(); i++) {
         if (secretWord[i] == userWord[i]) {
             std::cout << "(" << userWord[i] << ")";
